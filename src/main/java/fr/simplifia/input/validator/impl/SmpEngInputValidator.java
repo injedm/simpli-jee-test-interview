@@ -1,0 +1,27 @@
+package fr.simplifia.input.validator.impl;
+
+import fr.simplifia.input.exception.InputException;
+
+import java.util.Locale;
+
+public class SmpEngInputValidator extends AbstractSmpInputValidator {
+
+    private static String REGEXP = "^[^\\éèê]*$";
+
+    protected SmpEngInputValidator(Locale locale) {
+        super(locale);
+    }
+
+    @Override
+    public void validateInput(final String input) throws InputException {
+
+        if(!input.matches(REGEXP)){
+            throw new InputException("The input given is not compatible with the default validation strategy");
+        }
+    }
+    
+    @Override
+	public Locale getLocale() {
+		return this.locale;
+	}
+}

@@ -8,12 +8,18 @@ import java.util.Locale;
 public class SmpInputValidatorFactory {
 
     public static SmpInputValidator fromLocale(final Locale locale){
-        final SmpInputValidator result;
-        switch(locale.getLanguage()){
-            default:
-                result = new SmpDefaultInputValidator(locale);
-               break;
-        }
+         SmpInputValidator result;
+     
+         
+         if(locale.getLanguage().equals(new Locale("en").getLanguage()))
+         {
+        	 result = new SmpEngInputValidator(locale);
+         }
+         else
+         {
+             result = new SmpDefaultInputValidator(locale);
+
+         }
         return result;
     }
 }

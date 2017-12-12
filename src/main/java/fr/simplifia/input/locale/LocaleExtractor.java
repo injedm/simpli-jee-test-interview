@@ -25,6 +25,10 @@ public class LocaleExtractor {
         switch (input) {
             case "fr":
                 return Locale.FRENCH;
+                
+            case "en":
+            	return Locale.ENGLISH;
+               
 
             default:
                 return null;
@@ -36,3 +40,4 @@ public class LocaleExtractor {
         return result != null && !isEmpty(result.getLanguage());
     }
 }
+
